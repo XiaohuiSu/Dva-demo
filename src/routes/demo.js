@@ -6,7 +6,7 @@ function demo({dispatch,num}) {
     function Add() {
         dispatch({
             type: "num/add",
-            payload: {r: 'BIngo'}
+            payload: "BIngo"
         });
     }
 
