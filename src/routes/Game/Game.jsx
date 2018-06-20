@@ -51,7 +51,7 @@ function Game({dispatch,game}) {
             </div>
         );
   }
-
+ // connect方法返回的是一个容器组件，外面包了一层state
   export default connect(({game}) => (
       {game}
   ))(Game)
