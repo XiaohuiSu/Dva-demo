@@ -1,8 +1,17 @@
 import React from 'react';
 import style from './index.less';
+import { connect } from 'dva';
 
-export default function Square(props) {
+ function Square({dispatch,value,index}) {
+     function diaji() {
+        dispatch({
+            type: "game/handleClick",
+            payload: index
+          });
+     }
     return (
-        <button className={style.square} onClick={()=>props.onClick()}>{props.value}</button>
+        <button className={style.square} onClick={diaji}>{value}</button>
     );
 }
+
+export default connect()(Square)

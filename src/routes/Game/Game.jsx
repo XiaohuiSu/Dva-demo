@@ -5,12 +5,7 @@ import cal from '../../function/cal.js';
 
 function Game({dispatch,game}) {
 
-    function handleClick(i) {
-      dispatch({
-        type: "game/handleClick",
-        payload: i
-      });
-    }
+ 
   
     function jumpTo(i) {
       dispatch({
@@ -42,7 +37,7 @@ function Game({dispatch,game}) {
         return (
             <div className={style.game}>
                 <div className={style["game-board"]}>
-                    <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+                    <Board />
                 </div>
                 <div className={style["game-info"]}>
                     <div>{status}</div>
