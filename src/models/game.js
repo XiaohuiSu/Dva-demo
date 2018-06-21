@@ -34,6 +34,7 @@ export default {
              return state;
  
        },
+       
        jumpTo(states,{payload: obj}) {
            const state = {};
            Object.assign(state,states);

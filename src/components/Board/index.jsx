@@ -4,7 +4,6 @@ import style from './index.less';
 import { connect } from 'dva';
 
  function Board({history,current}) {
-
     function renderSquare(i) {
         return <Square value={history[current].squares[i]} index={i}/> ;
     }
@@ -31,14 +30,13 @@ import { connect } from 'dva';
     );
   }
 
-  function myState(state) {
-      const {history, isXNext, current} = state;
+  function myState({game}) {
       return {
-          history,
-          isXNext,
-          current,
-      };
+          history: game.history,
+          current: game.current
+      }
   }
+
 
   export default connect(myState)(Board)
   

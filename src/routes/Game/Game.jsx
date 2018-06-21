@@ -3,17 +3,8 @@ import style from './Game.less';
 import Board from '../../components/Board/index.jsx';
 import cal from '../../function/cal.js';
 
-function Game({dispatch,game}) {
+function Game({game,jumpTo}) {
 
- 
-  
-    function jumpTo(i) {
-      dispatch({
-        type: "game/jumpTo",
-        payload: i
-      });
-    }
-  
         let history = game.history;
         let current = history[game.current];
         let winner = cal(current.squares);
@@ -46,9 +37,23 @@ function Game({dispatch,game}) {
             </div>
         );
   }
+
+  function myState({game}) {
+      return {game};
+  }
+
+  function myFun(dispatch) {
+      return {
+        jumpTo: (i) => {
+            dispatch({
+                type: "game/jumpTo",
+                payload: i
+              });
+      
+      }}
+  }
+
  // connect方法返回的是一个容器组件，外面包了一层state
-  export default connect(({game}) => (
-      {game}
-  ))(Game)
+  export default connect(myState,myFun)(Game)
 
   
